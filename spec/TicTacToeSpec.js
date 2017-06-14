@@ -23,4 +23,8 @@ describe('TicTacToe', function(){
     expect(tictactoe.playerX).toBeDefined();
     expect(tictactoe.playerO).toBeDefined();
   });
+
+  it('has a function to return opponent Player', function(){
+    expect(tictactoe.opponent(tictactoe.playerO)).toEqual(tictactoe.playerX);
+  });
 });
