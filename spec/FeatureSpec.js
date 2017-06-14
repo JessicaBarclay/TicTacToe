@@ -6,19 +6,20 @@ describe('Playing TicTacToe',function(){
     tictactoe = new TicTacToe();
   });
 
-  it('playerX takes their turn and chooses position 2', function(){
+  it('playerX chooses position 2', function(){
     tictactoe.play(tictactoe.playerX, 2);
     expect(tictactoe.playerX.moves).toEqual([2]);
-    expect(tictactoe.grid[2]).toEqual('X');
+  });
+
+  it('players cannot choose a position that is not 1-9', function(){
+    expect(tictactoe.play(tictactoe.playerO, 11)).toBeUndefined();
   });
 
   describe('players must take turns', function(){
     it('playerX takes their turn and attempts to take a second turn', function(){
       tictactoe.play(tictactoe.playerX, 2);
       tictactoe.play(tictactoe.playerX, 3);
-      tictactoe.play(tictactoe.playerO, 5);
       expect(tictactoe.playerX.moves).toEqual([2]);
-      expect(tictactoe.playerO.moves).toEqual([5]);
     });
 
     it('players can only play a position once per game', function(){
