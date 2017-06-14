@@ -12,8 +12,8 @@ describe('TicTacToe', function(){
                                                    [3, 5, 7], [1, 4, 7],
                                                    [2, 5, 8], [3, 6, 9]]);
   });
-  
+
   it('has a function to return opponent Player', function(){
-    expect(tictactoe.opponent(tictactoe.playerO)).toEqual(tictactoe.playerX);
+    expect(tictactoe.opponent(tictactoe.O)).toEqual(tictactoe.X);
   });
 });
