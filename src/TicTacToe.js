@@ -21,7 +21,7 @@
     if(this.availablePositions.includes(position)) {
       this.availablePositions.splice(position - 1, 1);
       player.moves.push(position);
-      this.grid[position] = player.name;
+      return this.grid[position] = player.name;
     }
   };
 
