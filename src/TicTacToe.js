@@ -9,13 +9,13 @@
                                 [7, 8, 9], [1, 5, 9],
                                 [3, 5, 7], [1, 4, 7],
                                 [2, 5, 8], [3, 6, 9]];
-    this.playerX = new Player();
-    this.playerO = new Player();
+    this.playerX = new Player('X');
+    this.playerO = new Player('O');
   }
 
   TicTacToe.prototype.play = function (player, position) {
-    this.playerX.moves.push(position);
-    this.grid[position] = 'X';
+    player.moves.push(position);
+    this.grid[position] = player.name;
   };
 
   exports.TicTacToe = TicTacToe;
