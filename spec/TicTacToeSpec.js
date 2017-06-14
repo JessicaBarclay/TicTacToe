@@ -7,9 +7,9 @@ describe('TicTacToe', function(){
   });
 
   it('has a grid with positions 1-9', function(){
-    expect(tictactoe.grid).toEqual([{1 : []}, {2 : []}, {3 : []},
-                                    {4 : []}, {5 : []}, {6 : []},
-                                    {7 : []}, {8 : []}, {9 : []}]);
+    expect(tictactoe.grid).toEqual({1 : 0, 2 : 0, 3 : 0,
+                                    4 : 0, 5 : 0, 6 : 0,
+                                    7 : 0, 8 : 0, 9 : 0});
   });
 
   it('has a property of winning combinations', function(){
