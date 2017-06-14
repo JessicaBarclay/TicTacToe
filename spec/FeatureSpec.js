@@ -18,8 +18,7 @@ describe('Playing TicTacToe',function(){
   describe('players must take turns', function(){
     it('playerX takes their turn and attempts to take a second turn', function(){
       tictactoe.play(tictactoe.playerX, 2);
-      tictactoe.play(tictactoe.playerX, 3);
-      expect(tictactoe.playerX.moves).toEqual([2]);
+      expect(function(){ tictactoe.play(tictactoe.playerX, 3); }).toThrowError('It\'s playerOs turn');
     });
 
     it('players can only play a position once per game', function(){
@@ -27,6 +26,14 @@ describe('Playing TicTacToe',function(){
       tictactoe.play(tictactoe.playerO, 2);
       expect(tictactoe.availablePositions).toEqual([1, 3, 4, 5, 6, 7, 8, 9]);
       expect(tictactoe.playerO.moves).toEqual([]);
+    });
+
+    it('players cannot play the same position as one another', function(){
+      tictactoe.play(tictactoe.playerO, 9);
+      tictactoe.play(tictactoe.playerX, 9);
+      expect(tictactoe.grid).toEqual({1 : 0, 2 : 0, 3 : 0,
+                                      4 : 0, 5 : 0, 6 : 0,
+                                      7 : 0, 8 : 0, 9 : 'O'});
     });
   });
 });

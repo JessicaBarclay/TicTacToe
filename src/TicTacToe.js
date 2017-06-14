@@ -15,12 +15,14 @@
   }
 
   TicTacToe.prototype.play = function (player, position) {
-    if(player.moves.length > this.opponent(player).moves.length) { return; }
+    if(player.moves.length > this.opponent(player).moves.length) {
+      throw Error('It\'s player' + this.opponent(player).name + 's turn');
+    }
     if(this.availablePositions.includes(position)) {
       this.availablePositions.splice(position - 1, 1);
       player.moves.push(position);
+      this.grid[position] = player.name;
     }
-    this.grid[position] = player.name;
   };
 
   TicTacToe.prototype.opponent = function (player) {
