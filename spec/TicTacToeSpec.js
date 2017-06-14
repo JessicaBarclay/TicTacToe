@@ -18,4 +18,9 @@ describe('TicTacToe', function(){
                                                    [3, 5, 7], [1, 4, 7],
                                                    [2, 5, 8], [3, 6, 9]]);
   });
+
+  it('is initialized with two players', function(){
+    expect(tictactoe.playerX).toBeDefined();
+    expect(tictactoe.playerO).toBeDefined();
+  });
 });
