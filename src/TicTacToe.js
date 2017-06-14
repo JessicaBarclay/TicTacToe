@@ -13,7 +13,8 @@
     this.playerO = new Player('O');
   }
 
-  TicTacToe.prototype.play = function (player, position) {
+  TicTacToe.prototype.play = function (player, position, opponent) {
+    if(player.moves.length > opponent.moves.length) { return; }
     player.moves.push(position);
     this.grid[position] = player.name;
   };
