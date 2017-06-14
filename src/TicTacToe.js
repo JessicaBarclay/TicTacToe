@@ -13,6 +13,10 @@
     this.playerO = new Player();
   }
 
+  TicTacToe.prototype.play = function (player, position) {
+    this.playerX.moves.push(position);
+  };
+
   exports.TicTacToe = TicTacToe;
 
 })(this);

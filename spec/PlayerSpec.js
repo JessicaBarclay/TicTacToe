@@ -6,7 +6,7 @@ describe('Player', function(){
     player = new Player();
   });
 
-  it('has an inplay property set to false by default', function(){
-    expect(player.inplay).toEqual(false);
+  it('has a moves array property', function(){
+    expect(player.moves).toEqual([]);
   });
 });
