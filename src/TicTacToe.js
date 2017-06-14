@@ -2,6 +2,7 @@
   'use strict';
 
   function TicTacToe () {
+    this.availablePositions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     this.grid = { 1 : 0, 2 : 0, 3 : 0,
                   4 : 0, 5 : 0, 6 : 0,
                   7 : 0, 8 : 0, 9 : 0 };
@@ -15,13 +16,16 @@
 
   TicTacToe.prototype.play = function (player, position) {
     if(player.moves.length > this.opponent(player).moves.length) { return; }
-    player.moves.push(position);
+    if(this.availablePositions.includes(position)) {
+      this.availablePositions.splice(position - 1, 1);
+      player.moves.push(position);
+    }
     this.grid[position] = player.name;
   };
 
   TicTacToe.prototype.opponent = function (player) {
     if (player === this.playerX) { return this.playerO; }
-    else { return this.playerX; }
+    return this.playerX;
   };
 
   exports.TicTacToe = TicTacToe;
