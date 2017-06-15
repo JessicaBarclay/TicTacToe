@@ -24,8 +24,7 @@
   };
 
   TicTacToe.prototype.opponent = function (player) {
-    if (player === this.X) { return this.O; }
-    return this.X;
+    return player === this.X ? this.O : this.X;
   };
 
   exports.TicTacToe = TicTacToe;
