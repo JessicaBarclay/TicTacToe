@@ -1,6 +1,6 @@
 describe('Playing TicTacToe',function(){
 
-  var tictactoe;
+  var tictactoe, board;
 
   beforeEach(function(){
     tictactoe = new TicTacToe();
@@ -24,18 +24,18 @@ describe('Playing TicTacToe',function(){
     it('players can only play a position once per game', function(){
       tictactoe.play(tictactoe.X, 2);
       tictactoe.play(tictactoe.O, 2);
-      expect(tictactoe.grid).toEqual({1: 0, 2: 'X', 3: 0,
-                                      4: 0, 5: 0, 6: 0,
-                                      7: 0, 8: 0, 9: 0});
+      expect(tictactoe.board).toEqual({1: 0, 2: 'X', 3: 0,
+                                       4: 0, 5: 0, 6: 0,
+                                       7: 0, 8: 0, 9: 0});
       expect(tictactoe.O.moves).toEqual([]);
     });
 
     it('players cannot play the same position as one another', function(){
       tictactoe.play(tictactoe.O, 9);
       tictactoe.play(tictactoe.X, 9);
-      expect(tictactoe.grid).toEqual({1 : 0, 2 : 0, 3 : 0,
-                                      4 : 0, 5 : 0, 6 : 0,
-                                      7 : 0, 8 : 0, 9 : 'O'});
+      expect(tictactoe.board).toEqual({1 : 0, 2 : 0, 3 : 0,
+                                       4 : 0, 5 : 0, 6 : 0,
+                                       7 : 0, 8 : 0, 9 : 'O'});
     });
   });
 });
