@@ -13,7 +13,8 @@ describe('TicTacToe', function(){
                                                    [2, 5, 8], [3, 6, 9]]);
   });
 
-  it('has a function to return opponent Player', function(){
-    expect(tictactoe.opponent(tictactoe.O)).toEqual(tictactoe.X);
+  it('can return the number of moves a both players have made', function(){
+    tictactoe.play(tictactoe.X, 5);
+    expect(tictactoe.calculatePlayerTurn(tictactoe.X, tictactoe.O)).toEqual(tictactoe.O);
   });
 });

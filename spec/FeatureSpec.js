@@ -18,7 +18,7 @@ describe('Playing TicTacToe',function(){
   describe('players must take turns', function(){
     it('X takes their turn and attempts to take a second turn', function(){
       tictactoe.play(tictactoe.X, 2);
-      expect(function(){ tictactoe.play(tictactoe.X, 3); }).toThrowError('Expecting O');
+      expect(function(){ tictactoe.play(tictactoe.X, 3); }).toThrowError('Switch players');
     });
 
     it('players can only play a position once per game', function(){

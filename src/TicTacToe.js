@@ -12,17 +12,17 @@
   }
 
   TicTacToe.prototype.play = function (player, position) {
-    if(player.moves.length > this.opponent(player).moves.length) {
-      throw Error('Expecting ' + this.opponent(player).name);
-    }
+    if(this.calculatePlayerTurn(player) !== player) { throw Error('Switch players');}
     if(this.board[position] === 0) {
       player.moves.push(position);
       return this.board[position] = player.name;
     }
   };
 
-  TicTacToe.prototype.opponent = function (player) {
-    return player === this.X ? this.O : this.X;
+  TicTacToe.prototype.calculatePlayerTurn = function (player) {
+    var opponent;
+    player === this.X ? opponent = this.O : opponent = this.X;
+    return player.moves.length > opponent.moves.length ? opponent : player;
   };
 
   exports.TicTacToe = TicTacToe;
